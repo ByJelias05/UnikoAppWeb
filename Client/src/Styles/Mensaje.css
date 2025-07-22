@@ -1,0 +1,34 @@
+
+.Contenedor-Mensaje .Tu-Mensaje{
+    background: #73666E;
+
+    float: left;
+    padding: 10px;
+
+    border-radius: 100vmax;
+    border-top-left-radius: 0px;
+    color: #fff;
+
+    margin-top: 25px;
+}
+
+.Contenedor-Mensaje{
+
+
+    
+}
+
+.Contenedor-Mensaje .Mi-Mensaje{
+
+    
+    background: #fff;
+
+    float: left;
+    padding: 10px;
+
+    border-radius: 100vmax;
+    border-top-right-radius: 0px;
+    color: #2B0011;
+
+    margin-top: 25px;
+}

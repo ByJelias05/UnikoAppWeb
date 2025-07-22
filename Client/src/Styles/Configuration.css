@@ -1,0 +1,69 @@
+.Contenedor-Configuration{
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    background: #241A22;
+    padding-block: 50px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    gap: 25px;
+}
+
+.Titulo-Configuracion{
+    font-size: 20px;
+}
+
+.Foto-Perfil{
+   
+    text-align: center;
+   
+}
+.Borde-Foto{
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(#A81977, #5C271A, #E3D060);
+    border-radius: 100vmax;
+    padding: 5px;
+}
+.Foto-Perfil img{
+    width: 100%;
+   
+}
+
+
+.Separador{
+    width: 70%;
+    margin: 0 auto;
+    height: 5px;
+    background: #fff;
+    border-radius: 100vmax;
+}
+
+.Box {
+  width: 50px;
+  height: 60px;
+  border-radius: 5px;
+  padding: 3px;
+  background: linear-gradient(#A81977, #5C271A, #E3D060);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.Box::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background: #241A22;
+}
+
+.Sub-Config{
+    font-size: 16px;
+    color: gray;
+}

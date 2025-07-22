@@ -1,0 +1,87 @@
+.Contenedor-Conversations{
+
+    height: 100vh;
+    width: 100%;
+    /* border-right: 3px solid #fff; */
+    position: relative;
+    display: grid;
+    grid-template-rows: 15% 85%;
+
+}
+
+.Contenedor-Conversations::before{
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100vh;
+    background: linear-gradient(#A81977, #5C271A, #E3D060);
+}
+
+.Historias{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.Borde-Historia{
+   background: linear-gradient(#A81977, #5C271A, #E3D060);
+    height: 70px;
+    width: 70px;
+    border-radius: 100vmax;
+    padding: 5px;
+}
+
+.Borde-Historia img{
+    width: 100%;
+}
+
+.Filtro-Conversaciones{
+    padding: 10px;
+    font-family: "Poppins", sans-serif;
+}
+
+.Cantidad-Mensajes{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.Cantidad-Mensajes h1{
+    color: #fff;
+}
+.Cantidad-Mensajes h3{
+    color: #A81977;
+}
+
+.Filtro{
+    margin-top: 25px;
+}
+
+.Filtro input{
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    outline: none;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    padding-left: 15px;
+}
+
+.Filtro input::placeholder{
+    color: #fff;
+}
+
+.Panel-Conversaciones{
+    padding: 25px;
+   
+    height: 82%;
+    display: grid;
+    grid-template-rows: 33.33% 33.33% 33.33%;
+    
+}
+.Panel-Conversaciones h4{
+    color: #fff;
+}
