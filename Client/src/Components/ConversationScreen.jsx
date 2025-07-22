@@ -16,7 +16,7 @@ export function ConversationScreen(){
     const [enviar, setEnviar] = useState("")
 
     const Enviado = () =>{
-        axios.post("https://uniko-server.onrender.com/Enviar", {
+        axios.post("https://unikoappweb-api.onrender.com/Enviar", {
             mensaje: enviar
         })
     }
