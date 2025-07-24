@@ -1,8 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
-  base: '/',
   plugins: [react()],
+  build: {
+    // otras opciones si tienes
+  },
+  // 👇 ESTA PARTE es lo importante
+  server: {
+    historyApiFallback: true
+  }
 })
