@@ -42,6 +42,31 @@ app.post("/Enviar", async (req, res) =>{
     res.send("Hecho")
 })
 
+app.post("/Login", async (req, res) =>{
+
+    const correo = req.body.correo;
+    const contraseña = req.body.pp;
+
+    console.log(correo + contraseña)
+
+    const UsuarioRef = db.collection("Usuarios").where("Correo", "==", correo)
+
+    const query = await UsuarioRef.get()
+
+    const snaphoot = query.docs.map(usuarios => usuarios.data());
+
+    if(snaphoot.length > 0){
+        if(snaphoot[0].Contraseña == contraseña){
+            res.send("Felicidades")
+        }
+    }
+    else{
+        res.send("Correo incorrecto")
+    }
+
+    res.send("Correo o contraseña invalido")
+})
+
 
 app.listen(PORT, () =>{
     console.log(`SERVIDOR ACTIVO EN EL PUERTO ${PORT}`)

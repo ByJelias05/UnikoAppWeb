@@ -1,6 +1,23 @@
+import { useState } from "react"
 import "../Styles/Login.css"
+import axios from "axios";
 
 export function Login(){
+
+    const [Correo, setCorreo] = useState("");
+    const [Contraseña, setContraseña] = useState("");
+
+    // https://unikoappweb-api.onrender.com/Enviar/Login
+
+    const Logear = () =>{
+        
+        axios.post("http://localhost:3001/Login", {
+            correo: Correo,
+            pp: Contraseña
+        })
+        .then(response => alert(response.data))
+    }
+
     return(
         <div className="Contenedor-Login">
             <div className="Lateral-Izquierdo">
@@ -21,17 +38,17 @@ export function Login(){
                 </div>
 
                 <div className="Correo">
-                    <input type="text" placeholder="Correo"/>
+                    <input type="text" onChange={(e) => setCorreo(e.target.value)} placeholder="Correo"/>
                     <label htmlFor="">Perdiste tu correo?</label>
                 </div>
 
                 <div className="Contraseña">
-                    <input type="text" placeholder="Contraseña"/>
+                    <input type="text" onChange={(e) => {setContraseña(e.target.value)}} placeholder="Contraseña"/>
                     <label htmlFor="">Olvidaste tu contraseña?</label>
                 </div>
 
                 <div className="Iniciar-Sesion">
-                    <button>Iniciar Sesion</button>
+                    <button onClick={Logear}>Iniciar Sesion</button>
                 </div>
 
                 <div className="Ayudas">
