@@ -8,6 +8,8 @@ import {db} from "../FireBaseConfig"
 import { useEffect } from "react"
 import { useState } from "react"
 
+
+
 import axios from "axios"
 
 export function ConversationScreen(){
@@ -26,6 +28,7 @@ export function ConversationScreen(){
             collection(db, "Conversaciones"),
             (response) =>{
                 setMensajes(response.docs.map(items => items.data()))
+              
             }
         )
 
@@ -60,6 +63,8 @@ export function ConversationScreen(){
                         <input onChange={(e) => {setEnviar(e.target.value)}} type="text" placeholder="Escribe un mensaje..."/>
                         <button onClick={Enviado} className="Btn-Enviar"></button>
                     </div>
+
+                    
                 </div>
             </div>
         </div>
