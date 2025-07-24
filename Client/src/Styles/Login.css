@@ -1,0 +1,167 @@
+.Contenedor-Login{
+    font-family: "Poppins", sans-serif;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.Lateral-Izquierdo{
+    height: 100%;
+    width: 40%;
+    background: #150311;
+
+    border-bottom-right-radius: 100vmax;
+    border-top-right-radius: 100vmax;
+
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+
+    position: relative;
+}
+
+.Lateral-Izquierdo .Logo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    padding: 25px;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.Lateral-Izquierdo .AcercaDe-Cuenta{
+    text-align: center;
+   
+    width: 90%;
+    gap: 25px;
+}
+.AcercaDe-Cuenta h1{
+    color: #fff;
+    margin-block: 25px;
+    font-size: 3rem;
+}
+.AcercaDe-Cuenta p{
+    color: #7D7D7D;
+    margin-block: 25px;
+    font-size: 1.5;
+}
+.AcercaDe-Cuenta button{
+    margin-block: 25px;
+    width: 40%;
+    height: 60px;
+    background: #fff;
+    border: none;
+    border-radius: 100vmax;
+    color: #150311;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.Lateral-Derecho{
+    padding-block: 80px;
+  
+}
+
+.Titulo{
+    padding: 25px;
+}
+.Lateral-Derecho .Titulo h1{
+    color: #150311;
+    font-size: 4rem;
+}
+.Lateral-Derecho .Titulo p{
+    padding-left: 25px;
+    font-size: 2rem;
+}
+
+.Correo{
+    padding-block: 25px;
+    padding-inline: 75px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.Correo input{
+    background: none;
+    border: none;
+    border-bottom: 5px solid #150311;
+    width: 50%;
+    border-radius: 5px;
+    height: 50px;
+}
+
+.Correo input::placeholder{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #150311;
+}
+
+.Contraseña{
+    padding-block: 25px;
+    padding-inline: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.Contraseña input{
+    background: none;
+    border: none;
+    border-bottom: 5px solid #150311;
+    width: 60%;
+    border-radius: 5px;
+    height: 50px;
+}
+
+.Contraseña input::placeholder{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #150311;
+}
+
+
+.Iniciar-Sesion{
+    padding-block: 25px;
+    padding-inline: 125px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Iniciar-Sesion button{
+    width: 40%;
+    height: 60px;
+    background: #150311;
+    border: none;
+    border-radius: 100vmax;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.Ayudas{
+    padding-block: 25px;
+    padding-inline: 100px;
+    display: flex;
+    flex-direction: column;
+
+    width: 45%;
+    text-align: center;
+
+    gap: 15px;
+}
+
+.Otros-Metodos{
+    padding-block: 25px;
+    padding-inline: 75px;
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.Otros-Metodos .Box-Metodo{
+    width: 60px;
+    height: 60px;
+    background: #150311;
+    margin-inline: 10px;
+    border-radius: 100vmax;
+}
