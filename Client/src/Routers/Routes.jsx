@@ -6,7 +6,7 @@ export function Rutas(){
     return(
         <BrowserRouter>
             <Routes>
-                <Route path="/" Component={Chat}/>
+                <Route path="/" Component={Login}/>
                 <Route path="/Login" Component={Login}/>
             </Routes>
         </BrowserRouter>
