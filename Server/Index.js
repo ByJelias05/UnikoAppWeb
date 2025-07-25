@@ -57,14 +57,14 @@ app.post("/Login", async (req, res) =>{
 
     if(snaphoot.length > 0){
         if(snaphoot[0].Contraseña == contraseña){
-            res.send("Felicidades")
+            res.send({status: Exitoso})
         }
     }
     else{
-        res.send("Correo incorrecto")
+        res.send({status: error})
     }
 
-    res.send("Correo o contraseña invalido")
+    res.send({status: error})
 })
 
 

@@ -2,7 +2,12 @@ import { useState } from "react"
 import "../Styles/Login.css"
 import axios from "axios";
 
+import {useContext} from "react"
+import {LoginContext} from "../Routers/Routes"
+
 export function Login(){
+
+    const [Usuario, setUsuario] = useContext(LoginContext)
 
     const [Correo, setCorreo] = useState("");
     const [Contraseña, setContraseña] = useState("");
@@ -15,7 +20,15 @@ export function Login(){
             correo: Correo,
             pp: Contraseña
         })
-        .then(response => alert(response.data))
+        .then(response => {
+            setUsuario(response.data)
+            alert(response.data)
+            if(response.data.status == "Exitoso"){
+                window.location.href = "/wws"
+            }
+        })
+        
+       
     }
 
     return(
