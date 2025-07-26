@@ -2,6 +2,7 @@ const express = require('express')
 const firebase = require('firebase/compat/app');
 const store = require('firebase/compat/firestore')
 const cors = require("cors")
+const JWT = require("jsonwebtoken")
 
 const PORT = process.env.PORT || 3001;
 
@@ -44,8 +45,8 @@ app.post("/Enviar", async (req, res) =>{
 
 app.post("/Login", async (req, res) =>{
 
-    const correo = req.body.correo;
-    const contraseña = req.body.pp;
+    const correo = "Jelias@gmail.com";
+    const contraseña = "123";
 
     console.log(correo + contraseña)
 
@@ -54,17 +55,24 @@ app.post("/Login", async (req, res) =>{
     const query = await UsuarioRef.get()
 
     const snaphoot = query.docs.map(usuarios => usuarios.data());
-
+    // console.log(snaphoot.length)
     if(snaphoot.length > 0){
         if(snaphoot[0].Contraseña == contraseña){
-            res.send({status: Exitoso})
+            // res.send({status: 'Exitoso', nombre: snaphoot[0].Nombre, correo: snaphoot[0].Correo})
+
+            JWT.sign(snaphoot[0], "Jelias", (token, error) =>{
+                if(token){
+                    res.send(token)
+                }
+                else{
+                    res.send(error)
+                }
+            })
         }
     }
     else{
-        res.send({status: error})
+        res.send({status: 'Error s'})
     }
-
-    res.send({status: error})
 })
 
 
