@@ -32,6 +32,7 @@ export function Login(){
             secure: false        // true si estás en HTTPS
             });
 
+            console.log(response.data)
             if(response.status == "Exitoso"){
                 window.location.href = "/"
             }

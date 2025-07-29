@@ -45,8 +45,8 @@ app.post("/Enviar", async (req, res) =>{
 
 app.post("/Login", async (req, res) =>{
 
-    const correo = req.body.correo;
-    const contraseña = req.body.password;
+    const correo = "Jelias@gmail.com";
+    const contraseña = "123";
 
     console.log(correo + contraseña)
 
