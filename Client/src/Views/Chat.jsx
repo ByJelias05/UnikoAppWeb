@@ -23,7 +23,7 @@ export function Chat(){
         const token = cookies.get("token")
 
         if(typeof token != "undefined"){
-            fetch("http://localhost:3001/Sesion", {
+            fetch("https://unikoappweb-api.onrender.com/Sesion", {
                 method: "POST",
                 headers: {
                     Authorization: token

@@ -20,7 +20,7 @@ export function Login(){
 
     const Logear = () =>{
         
-        axios.post("http://localhost:3001/Login", {
+        axios.post("https://unikoappweb-api.onrender.com/Login", {
             correo: Correo,
             pp: Contraseña
         })
@@ -35,7 +35,7 @@ export function Login(){
             window.location.href = "/"
                         
         })
-        alert("klk")
+        
     }
 
     return(
@@ -47,7 +47,7 @@ export function Login(){
                 <div className="AcercaDe-Cuenta">
                     <h1>¡Hey!</h1>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia, nulla. Vitae voluptatum quia tenetur corporis aperiam? Expedita commodi sed illum, quasi in consequuntur natus eos nostrum laborum voluptates quod sint.</p>
-                    <button onClick={() => {alert("klk")}}>Crear Cuenta</button>
+                    <button>Crear Cuenta</button>
                 </div>
             </div>
             <div className="Lateral-Derecho">
