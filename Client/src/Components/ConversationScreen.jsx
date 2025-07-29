@@ -10,14 +10,15 @@ import { useState } from "react"
 
 import axios from "axios"
 
-export function ConversationScreen(){
+export function ConversationScreen({nombre, correo}){
 
     const [Mensajes, setMensajes] = useState([]);
     const [enviar, setEnviar] = useState("")
 
     const Enviado = () =>{
         axios.post("https://unikoappweb-api.onrender.com/Enviar", {
-            mensaje: enviar
+            mensaje: enviar,
+            enviadoPor: nombre
         })
     }
 

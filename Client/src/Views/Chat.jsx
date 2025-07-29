@@ -15,6 +15,7 @@ import { useState } from "react"
 export function Chat(){
 
     const [Logeado, setLogeado] = useState(false)
+    const [data, setData] = useState()
 
     const cookies = new Cookies();
     
@@ -35,6 +36,7 @@ export function Chat(){
                 console.log(data.status)
                 if(data.status == "Exitoso"){
                     setLogeado(true)
+                    setData(data)
                 }
             })
             
@@ -63,7 +65,7 @@ export function Chat(){
                             </div>
 
                             <div className="Mensajes">
-                                <ConversationScreen></ConversationScreen>
+                                <ConversationScreen nombre={data.data.Nombre} correo={data.data.Correo}></ConversationScreen>
                             </div>
                         </div>
 

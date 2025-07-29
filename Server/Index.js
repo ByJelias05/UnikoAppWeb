@@ -33,10 +33,12 @@ app.get('/data', async (req, res) =>{
 app.post("/Enviar", async (req, res) =>{
 
     const Mensaje = req.body.mensaje;
+    const EnviadoPor = req.body.enviadoPor;
 
     const ConversacionRef = db.collection('Conversaciones').doc();
 
     await ConversacionRef.set({
+        EnviadoPor,
         Mensaje
     })
 
