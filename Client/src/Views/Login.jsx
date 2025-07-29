@@ -35,7 +35,7 @@ export function Login(){
             window.location.href = "/"
                         
         })
-        
+        alert("klk")
     }
 
     return(
