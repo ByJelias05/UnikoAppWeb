@@ -47,7 +47,7 @@ export function Login(){
                 <div className="AcercaDe-Cuenta">
                     <h1>¡Hey!</h1>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia, nulla. Vitae voluptatum quia tenetur corporis aperiam? Expedita commodi sed illum, quasi in consequuntur natus eos nostrum laborum voluptates quod sint.</p>
-                    <button>Crear Cuenta</button>
+                    <button onClick={() => {alert("klk")}}>Crear Cuenta</button>
                 </div>
             </div>
             <div className="Lateral-Derecho">
