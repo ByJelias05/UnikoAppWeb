@@ -25,6 +25,7 @@ export function Login(){
             password: Contraseña
         })
         .then(response => {
+            console.log(response.data.token)
             cookie.set('token', response.data.token, {
             path: '/',
             expires: new Date(Date.now() + 25000),        // en segundos
@@ -32,7 +33,7 @@ export function Login(){
             secure: false        // true si estás en HTTPS
             });
 
-            console.log(response.data)
+            // console.log(response.data)
             if(response.data.status == "Exitoso"){
                 window.location.href = "/"
             }

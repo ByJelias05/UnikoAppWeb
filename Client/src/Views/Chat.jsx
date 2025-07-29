@@ -14,7 +14,7 @@ import { useState } from "react"
 
 export function Chat(){
 
-    const [Logeado, setLogeado] = useState()
+    const [Logeado, setLogeado] = useState(false)
 
     const cookies = new Cookies();
     
@@ -32,7 +32,8 @@ export function Chat(){
             .then(reponse => reponse.json())
             .then(data => {
                 console.log(data)
-                if(data.data.status == "Exitoso"){
+                console.log(data.status)
+                if(data.status == "Exitoso"){
                     setLogeado(true)
                 }
             })
