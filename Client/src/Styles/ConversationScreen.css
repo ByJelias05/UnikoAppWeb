@@ -4,7 +4,9 @@
    display: grid;
    grid-template-rows: 15% 85%;
    font-family: "Poppins", sans-serif;
-
+    
+    overflow: hidden;
+    
 }
 
 .Informacion-Conversacion{
@@ -29,19 +31,42 @@
 }
 
 .Contenedor-Mensajes{
-    padding-inline: 50px;
+    padding-inline: 0px;
     padding-block: 25px;
     
     display: grid;
     grid-template-rows: 90% 10%;
+
+   overflow: hidden;
 }
 
-.Mensajes{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    
+.Mensajes {
+  width: 100%;
+  height: 100%;
+
+  overflow: auto; /* <--- Esto es clave */
+  padding-right: 10px; /* opcional: para que no se pegue el scroll al texto */
 }
+
+.Mensajes::-webkit-scrollbar {
+  width: 8px; /* ancho del scroll */
+}
+
+.Mensajes::-webkit-scrollbar-track {
+  background: #2c2c2c; /* fondo del track */
+  border-radius: 10px;
+}
+
+.Mensajes::-webkit-scrollbar-thumb {
+  background-color: #891b66; /* color del scroll */
+  border-radius: 10px;
+  border: 2px solid #241A22; /* espacio entre thumb y track */
+}
+
+.Mensajes::-webkit-scrollbar-thumb:hover {
+  background-color: #490232; /* al pasar el mouse */
+}
+
 
 .Mi{
     display: flex;
