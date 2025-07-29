@@ -5,6 +5,8 @@ import axios from "axios";
 import {useContext} from "react"
 import {LoginContext} from "../Routers/Routes"
 
+import {Cookies} from "react-cookie"
+
 export function Login(){
 
     const [Usuario, setUsuario] = useContext(LoginContext)
@@ -14,6 +16,8 @@ export function Login(){
 
     // https://unikoappweb-api.onrender.com/Enviar/Login
 
+    const cookie = new Cookies();
+
     const Logear = () =>{
         
         axios.post("http://localhost:3001/Login", {
@@ -21,14 +25,17 @@ export function Login(){
             pp: Contraseña
         })
         .then(response => {
-            setUsuario(response.data)
-            alert(response.data)
-            if(response.data.status == "Exitoso"){
-                window.location.href = "/wws"
-            }
+            cookie.set('token', response.data, {
+            path: '/',
+            expires: new Date(Date.now() + 25000),        // en segundos
+            sameSite: 'Lax',
+            secure: false        // true si estás en HTTPS
+            });
+
+            window.location.href = "/"
+                        
         })
         
-       
     }
 
     return(

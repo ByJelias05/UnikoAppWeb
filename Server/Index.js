@@ -60,7 +60,7 @@ app.post("/Login", async (req, res) =>{
         if(snaphoot[0].Contraseña == contraseña){
             // res.send({status: 'Exitoso', nombre: snaphoot[0].Nombre, correo: snaphoot[0].Correo})
 
-            JWT.sign(snaphoot[0], "Jelias", (token, error) =>{
+            JWT.sign(snaphoot[0], "Jelias", {expiresIn: 10}, (token, error) =>{
                 if(token){
                     res.send(token)
                 }
@@ -74,6 +74,36 @@ app.post("/Login", async (req, res) =>{
         res.send({status: 'Error s'})
     }
 })
+
+
+
+app.post("/Sesion", verificar, (req, res) =>{
+
+    const token = req.token
+    
+    JWT.verify(token, "Jelias", (error, AuthData) =>{
+        if(error){
+            console.log(error)
+        }
+        else{
+            res.send({Status: "Exitoso", data:AuthData})
+        }
+       
+    })
+
+})
+
+function verificar(req, res, next){
+
+    const token = req.headers.authorization
+
+    if(typeof token != "undefined"){
+        req.token = token;
+        next();
+    }
+
+    res.send("error")
+}
 
 
 app.listen(PORT, () =>{

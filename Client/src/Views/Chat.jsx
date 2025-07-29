@@ -8,14 +8,44 @@ import {useContext} from "react"
 import {LoginContext} from "../Routers/Routes"
 import { useEffect } from "react"
 
+import {Cookies} from "react-cookie"
+import axios from "axios"
+import { useState } from "react"
+
 export function Chat(){
 
-    const [Usuario, setUsuario] = useContext(LoginContext)
+    const [Logeado, setLogeado] = useState()
+
+    const cookies = new Cookies();
+    
+
+    useEffect(() =>{
+        const token = cookies.get("token")
+
+        if(typeof token != "undefined"){
+            fetch("http://localhost:3001/Sesion", {
+                method: "POST",
+                headers: {
+                    Authorization: token
+                }
+            })
+            .then(reponse => reponse.json())
+            .then(data => {
+                if(data.Status == "Exitoso"){
+                    setLogeado(true)
+                }
+            })
+            
+        }else{
+            window.location.href = "/Login"
+        }
+
+    },[])
 
     return(
         <div>
             {
-                Usuario.status == "Exitoso" ?
+                Logeado == true ?
                     <div className="Contenedor-Chat">
 
                         <div className="Fondo-Chat"></div>
@@ -36,9 +66,11 @@ export function Chat(){
                         </div>
 
                     </div>
-                    :
-                    window.location.href = "/Login"
-            }
+                     :
+                    <div>
+                        <h1>Cargando.....</h1>
+                    </div>
+            } 
         </div>
     )
 }
