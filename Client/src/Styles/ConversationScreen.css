@@ -6,7 +6,7 @@
    font-family: "Poppins", sans-serif;
     
     overflow: hidden;
-    
+    padding-left: 25px;
 }
 
 .Informacion-Conversacion{
@@ -41,6 +41,10 @@
 }
 
 .Mensajes {
+display: flex;
+    flex-direction: column;
+    position: relative;
+
   width: 100%;
   height: 100%;
 
