@@ -22,7 +22,7 @@ export function Login(){
         
         axios.post("https://unikoappweb-api.onrender.com/Login", {
             correo: Correo,
-            pp: Contraseña
+            password: Contraseña
         })
         .then(response => {
             cookie.set('token', response.data, {
@@ -32,7 +32,9 @@ export function Login(){
             secure: false        // true si estás en HTTPS
             });
 
-            window.location.href = "/"
+            if(response.status == "Exitoso"){
+                window.location.href = "/"
+            }
                         
         })
         

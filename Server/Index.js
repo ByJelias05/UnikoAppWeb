@@ -45,8 +45,8 @@ app.post("/Enviar", async (req, res) =>{
 
 app.post("/Login", async (req, res) =>{
 
-    const correo = "Jelias@gmail.com";
-    const contraseña = "123";
+    const correo = req.body.correo;
+    const contraseña = req.body.password;
 
     console.log(correo + contraseña)
 
@@ -60,12 +60,12 @@ app.post("/Login", async (req, res) =>{
         if(snaphoot[0].Contraseña == contraseña){
             // res.send({status: 'Exitoso', nombre: snaphoot[0].Nombre, correo: snaphoot[0].Correo})
 
-            JWT.sign(snaphoot[0], "Jelias", {expiresIn: 10}, (token, error) =>{
-                if(token){
-                    res.send(token)
+            JWT.sign(snaphoot[0], "Jelias", {expiresIn: 10}, (error, token) =>{
+                if(error){
+                    res.send(error)
                 }
                 else{
-                    res.send(error)
+                    res.send({status: "Exitoso", token})
                 }
             })
         }
