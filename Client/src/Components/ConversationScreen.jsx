@@ -49,6 +49,11 @@ export function ConversationScreen({nombre, correo}){
                 <div className="Mensajes">
                     {
                         Mensajes.map(items =>(
+                            items.EnviadoPor == nombre ?
+                            <div className="Mi">
+                                <Mi_Mensaje Mensaje={items.Mensaje}></Mi_Mensaje>
+                            </div>
+                            :
                             <div>
                                 <Tu_Mensaje Mensaje={items.Mensaje}></Tu_Mensaje>
                             </div>
@@ -69,19 +74,3 @@ export function ConversationScreen({nombre, correo}){
         </div>
     )
 }
-
-
-
-
-
-{/* <div>
-                        <Tu_Mensaje Mensaje={"Hola ✌️"}/>
-                    </div>
-                    <Tu_Mensaje Mensaje={"Obtenga información sobre cómo usar el instalador de Visual Studio para instalar SQL Server Management Studio"}></Tu_Mensaje>
-                    <div className="Mi">
-                        <Mi_Mensaje Mensaje={"Hola"}></Mi_Mensaje>
-                    </div>
-                    <div className="Mi">
-                        <Mi_Mensaje Mensaje={"Obtenga información sobre cómo usar el instalador de Visual Studio para instalar SQL Server Management Studio"}></Mi_Mensaje>
-                    </div>
-                    <Tu_Mensaje Mensaje={"Ok"}/> */}
