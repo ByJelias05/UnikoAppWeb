@@ -65,7 +65,7 @@ app.post("/Login", async (req, res) =>{
                     res.send(error)
                 }
                 else{
-                    res.send({status: "Exitoso", token})
+                    res.send({status: "Exitoso", token:token})
                 }
             })
         }
@@ -86,7 +86,7 @@ app.post("/Sesion", verificar, (req, res) =>{
             console.log(error)
         }
         else{
-            res.send({Status: "Exitoso", data:AuthData})
+            res.send({status: "Exitoso", data:AuthData})
         }
        
     })

@@ -31,7 +31,8 @@ export function Chat(){
             })
             .then(reponse => reponse.json())
             .then(data => {
-                if(data.Status == "Exitoso"){
+                console.log(data)
+                if(data.data.status == "Exitoso"){
                     setLogeado(true)
                 }
             })
