@@ -25,7 +25,7 @@ app.use(express.json(), express.urlencoded({extended: true}), cors())
 
 app.get('/data', async (req, res) =>{
 
-    const ConersacionesRef = await db.collection('Conversaciones').get();
+    const ConersacionesRef = await db.collection('Conversaciones').orderBy("Fecha").get();
 
     res.send(ConersacionesRef.docs.map(items => items.data()))
 })
@@ -34,12 +34,14 @@ app.post("/Enviar", async (req, res) =>{
 
     const Mensaje = req.body.mensaje;
     const EnviadoPor = req.body.enviadoPor;
+    const Fecha = new Date();
 
     const ConversacionRef = db.collection('Conversaciones').doc();
 
     await ConversacionRef.set({
         EnviadoPor,
-        Mensaje
+        Mensaje,
+        Fecha,
     })
 
     res.send("Hecho")
