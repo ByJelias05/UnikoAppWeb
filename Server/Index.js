@@ -34,14 +34,14 @@ app.post("/Enviar", async (req, res) =>{
 
     const Mensaje = req.body.mensaje;
     const EnviadoPor = req.body.enviadoPor;
-    const Fecha = new Date();
+    // const Fecha = new Date();
 
     const ConversacionRef = db.collection('Conversaciones').doc();
 
     await ConversacionRef.set({
         EnviadoPor,
         Mensaje,
-        Fecha,
+        Fecha: firebase.default.firestore.Timestamp.now(),
     })
 
     res.send("Hecho")

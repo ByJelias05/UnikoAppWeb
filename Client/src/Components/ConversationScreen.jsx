@@ -3,7 +3,7 @@ import foto from "../Images/image.png"
 import { Tu_Mensaje } from "./Tu-Mensaje"
 import { Mi_Mensaje } from "./Mi-Mensaje"
 
-import {collection, onSnapshot} from "firebase/firestore"
+import {collection, onSnapshot, orderBy, query} from "firebase/firestore"
 import {db} from "../FireBaseConfig"
 import { useEffect } from "react"
 import { useState } from "react"
@@ -23,9 +23,14 @@ export function ConversationScreen({nombre, correo}){
     }
 
     useEffect(() =>{
-        const UnOnsnapshot = onSnapshot(
+
+        const q = query(
             collection(db, "Conversaciones"),
-            (response) =>{
+            orderBy("Fecha", "asc")
+        )
+
+        const UnOnsnapshot = onSnapshot(
+           q, (response) =>{
                 setMensajes(response.docs.map(items => items.data()))
               
             }
