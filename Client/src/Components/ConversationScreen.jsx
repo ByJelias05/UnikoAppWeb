@@ -6,7 +6,7 @@ import { Mi_Mensaje } from "./Mi-Mensaje"
 import {collection, onSnapshot, orderBy, query} from "firebase/firestore"
 import {db} from "../FireBaseConfig"
 import { useEffect } from "react"
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 import axios from "axios"
 
@@ -14,6 +14,13 @@ export function ConversationScreen({nombre, correo}){
 
     const [Mensajes, setMensajes] = useState([]);
     const [enviar, setEnviar] = useState("")
+
+    const ContenedorMensajeRef = useRef(null);
+
+    const ScrollFinal = () =>{
+        
+        ContenedorMensajeRef.current.scrollTop = ContenedorMensajeRef.current.scrollHeight + 100
+    }
 
     const Enviado = () =>{
         axios.post("https://unikoappweb-api.onrender.com/Enviar", {
@@ -24,6 +31,8 @@ export function ConversationScreen({nombre, correo}){
 
     useEffect(() =>{
 
+        
+
         const q = query(
             collection(db, "Conversaciones"),
             orderBy("Fecha", "asc")
@@ -32,12 +41,16 @@ export function ConversationScreen({nombre, correo}){
         const UnOnsnapshot = onSnapshot(
            q, (response) =>{
                 setMensajes(response.docs.map(items => items.data()))
-              
+                
             }
         )
 
         return () => UnOnsnapshot();
     },[])
+
+    useEffect(() => {
+      ScrollFinal();
+    }, [Mensajes]);
 
     return(
         <div className="Contenedor-ConversationScreen">
@@ -51,7 +64,7 @@ export function ConversationScreen({nombre, correo}){
                 </div>
             </div>
             <div className="Contenedor-Mensajes">
-                <div className="Mensajes">
+                <div ref={ContenedorMensajeRef} className="Mensajes">
                     {
                         Mensajes.map(items =>(
                             items.EnviadoPor == nombre ?
