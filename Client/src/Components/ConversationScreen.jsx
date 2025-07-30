@@ -23,10 +23,13 @@ export function ConversationScreen({nombre, correo}){
     }
 
     const Enviado = () =>{
-        axios.post("https://unikoappweb-api.onrender.com/Enviar", {
+        if(enviar.trim()){
+            axios.post("https://unikoappweb-api.onrender.com/Enviar", {
             mensaje: enviar,
             enviadoPor: nombre
         })
+        .then(() => setEnviar(""))
+        }   
     }
 
     useEffect(() =>{
@@ -82,7 +85,7 @@ export function ConversationScreen({nombre, correo}){
                     <div className="Input">
                         <button className="Btn-Agregar">+</button>
                         <button className="Btn-Emoji">😂</button>
-                        <input onChange={(e) => {setEnviar(e.target.value)}} type="text" placeholder="Escribe un mensaje..."/>
+                        <input onChange={(e) => {setEnviar(e.target.value)}} type="text" value={enviar} placeholder="Escribe un mensaje..."/>
                         <button onClick={Enviado} className="Btn-Enviar"></button>
                     </div>
 
