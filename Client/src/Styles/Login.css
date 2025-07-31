@@ -164,4 +164,14 @@
     background: #150311;
     margin-inline: 10px;
     border-radius: 100vmax;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.Box-Metodo img{
+    width: 40px;
 }

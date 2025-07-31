@@ -9,6 +9,8 @@ import {Cookies} from "react-cookie"
 
 import { getAuth, getRedirectResult, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
 
+import IconoGoogle from "../Images/Google.svg"
+ 
 export function Login(){
 
     const [Usuario, setUsuario] = useContext(LoginContext)
@@ -79,7 +81,7 @@ onAuthStateChanged(auth, (user) => {
     const uid = user.uid;
     // Puedes acceder a la información del usuario aquí
     // console.log("Usuario autenticado:", user);
-    axios.post("http://localhost:3001/Logi/Google", {
+    axios.post("https://unikoappweb-api.onrender.com/Logi/Google", {
         user
     })
     .then(response => {
@@ -132,7 +134,7 @@ onAuthStateChanged(auth, (user) => {
                 </div>
 
                 <div className="Otros-Metodos">
-                    <div className="Box-Metodo" onClick={Google}></div>
+                    <div className="Box-Metodo" onClick={Google}><img src={IconoGoogle} alt="" /></div>
                     <div className="Box-Metodo"></div>
                     <div className="Box-Metodo"></div>
                 </div>
