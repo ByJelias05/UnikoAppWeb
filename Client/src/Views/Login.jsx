@@ -7,7 +7,7 @@ import {LoginContext} from "../Routers/Routes"
 
 import {Cookies} from "react-cookie"
 
-import { getAuth, getRedirectResult, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, getRedirectResult, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
 
 export function Login(){
 
@@ -70,6 +70,28 @@ export function Login(){
                 // ...
         });
     }
+
+    const auth = getAuth();
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // El usuario ha iniciado sesión
+    const uid = user.uid;
+    // Puedes acceder a la información del usuario aquí
+    // console.log("Usuario autenticado:", user);
+    axios.post("http://localhost:3001/Logi/Google", {
+        user
+    })
+    .then(response => {
+        localStorage.setItem("google", JSON.stringify(response.data))
+        window.location.href = "/"
+    })
+  } else {
+    // El usuario no ha iniciado sesión
+    console.log("Usuario no autenticado");
+    // Redirigir a la página de inicio de sesión o realizar otra acción
+  }
+});
 
     return(
         <div className="Contenedor-Login">

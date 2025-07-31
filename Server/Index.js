@@ -110,6 +110,19 @@ function verificar(req, res, next){
 }
 
 
+app.post("/Logi/:data", (req, res) =>{
+
+    const tipo = req.params.data;
+    const Obj = req.body.user;
+    
+    if(tipo == "Google"){
+        res.send({status: "Exitoso", data:Obj})
+    }
+    res.send("w")
+
+})
+
+
 app.listen(PORT, () =>{
     console.log(`SERVIDOR ACTIVO EN EL PUERTO ${PORT}`)
 })

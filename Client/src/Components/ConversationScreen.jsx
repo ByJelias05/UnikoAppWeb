@@ -59,7 +59,7 @@ export function ConversationScreen({nombre, correo}){
         <div className="Contenedor-ConversationScreen">
             <div className="Informacion-Conversacion">
                 <div className="Foto-Receptor">
-                    <img src={foto} alt="" />
+                    <img src="https://lh3.googleusercontent.com/a/ACg8ocKMozoOs4RtV-th4Fd2L98_KIKRZC-5BA8OKWAY9mF0R-N-2HNR=s96-c" alt="" />
                 </div>
                 <div className="Nombre-Estado">
                     <h1 className="Receptor">Jelias Garcia</h1>

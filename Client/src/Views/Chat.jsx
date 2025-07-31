@@ -23,7 +23,15 @@ export function Chat(){
     useEffect(() =>{
         const token = cookies.get("token")
 
-        if(typeof token != "undefined"){
+        const gooogle = JSON.parse(localStorage.getItem("google"));
+        
+
+        if(gooogle != null){
+            setLogeado(true)
+            setData(gooogle.data)
+        }
+        else{
+            if(typeof token != "undefined"){
             fetch("https://unikoappweb-api.onrender.com/Sesion", {
                 method: "POST",
                 headers: {
@@ -42,6 +50,7 @@ export function Chat(){
             
         }else{
             window.location.href = "/Login"
+        }
         }
 
     },[])
@@ -65,7 +74,7 @@ export function Chat(){
                             </div>
 
                             <div className="Mensajes">
-                                <ConversationScreen nombre={data.data.Nombre} correo={data.data.Correo}></ConversationScreen>
+                                <ConversationScreen nombre={data.displayName || data.data.Nombre} correo={data.email || data.data.Correo}></ConversationScreen>
                             </div>
                         </div>
 
